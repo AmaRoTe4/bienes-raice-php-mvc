@@ -1,0 +1,21 @@
+{
+    "name": "amaro/bienes-raices-php",
+    "description": "Creando Proyecto con PDO",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Amaro",
+            "email": "amaro7JJ@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Model\\" : "./models",
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers"
+        }
+    }
+}
