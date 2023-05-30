@@ -12,7 +12,7 @@ class ProControllers
     {
         $propiedades = Propiedad::getAll();
 
-        $router->render("index", [
+        $router->render("propiedades/index", [
             'propiedades' => $propiedades
         ]);
     }
@@ -43,7 +43,7 @@ class ProControllers
             echo "errore en el formulario";
         }
 
-        $router->render("actualizar", [
+        $router->render("propiedades/actualizar", [
             'vendedores' => $vendedores,
             'propiedad' => $propiedad
         ]);
@@ -68,7 +68,7 @@ class ProControllers
             echo "error en el formulario";
         }
 
-        $router->render("crear", [
+        $router->render("propiedades/crear", [
             'vendedores' => $vendedores,
             'propiedad' => $propiedad
         ]);

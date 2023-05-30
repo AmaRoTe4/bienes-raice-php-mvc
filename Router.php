@@ -24,15 +24,34 @@ class Router {
         else echo "Pagina no encontradas";            
     }
 
-    public function render($view , $datos = []){   
+    public function render($view , $datos = []){  
+        $this->comprarRutas(); 
+        
         foreach($datos as $key => $value){
             $$key = $value;
         }
         
         ob_start();
-        include __DIR__ . "/views/propiedades/$view.php";
+        include __DIR__ . "/views/$view.php";
         $contenido = ob_get_clean();
 
         include __DIR__ . "/views/layout.php";
+    }
+
+    public function comprarRutas(){
+        $rutasRestringidas = [
+            "/admin",
+            "/propiedades/crear",
+            "/propiedades/actualizar",
+            "/propiedades/eliminar",
+        ];
+
+        session_start();
+        $sesion = $_SESSION["login"] ?? false;
+        
+        if(
+            !$sesion 
+            && in_array($_SERVER["PATH_INFO"], $rutasRestringidas)
+        ) header("Location: /");
     }
 }
